@@ -1,12 +1,12 @@
 import './main.scss';
-import img1 from './img/img1.jpg';
+import main from '../../../resources/img'
 
 const Main = () => {
 
 
 	return (
 		<div className="main">
-			<img src={img1} alt="img1" />
+			<img src={main} alt="main" />
 			<div className="main__finder">
 				<input type="text" placeholder='just type your city' />
 				<button>Get weather</button>

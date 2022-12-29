@@ -1,7 +1,12 @@
 .application {
+	max-width: 1200px;
+	margin: 0 auto;
+	border: 1px solid blue;
+
 	&__wraper {
-		&:not(:last-child) {
-			margin-right: 50px;
-		}
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 50px;
 	}
 }

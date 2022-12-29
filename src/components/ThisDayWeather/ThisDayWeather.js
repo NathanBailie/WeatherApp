@@ -1,5 +1,6 @@
 import './thisDayWeather.scss';
-import sunny from './Sunny.png';
+import sun from '../../resources/icons/sun.svg';
+
 
 const ThisDayWeather = () => {
 
@@ -15,7 +16,7 @@ const ThisDayWeather = () => {
 					<h3>Сегодня</h3>
 				</div>
 				<div className="thisDay__image">
-					<img src={sunny} alt="sunny" />
+					<img src={sun} alt="sun" />
 				</div>
 			</div>
 			<p>Время: 21:54</p>
