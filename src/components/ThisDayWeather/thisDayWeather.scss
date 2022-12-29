@@ -1,0 +1,59 @@
+.thisDay {
+	width: 400px;
+	height: 300px;
+	border: 1px solid blue;
+	padding: 20px;
+
+	&__weather {
+		display: flex;
+	}
+
+	&__temperature {
+		width: 50%;
+
+		span {
+			width: 160px;
+			height: 117px;
+			font-family: 'Montserrat';
+			font-style: normal;
+			font-weight: 500;
+			font-size: 96px;
+			line-height: 117px;
+			color: #4793FF;
+		}
+
+		h3 {
+			font-family: 'Montserrat';
+			font-style: normal;
+			font-weight: 400;
+			font-size: 40px;
+			line-height: 49px;
+			margin-bottom: 30px;
+		}
+	}
+
+	&__image {
+		width: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		img {
+			width: 120px;
+			height: 120px;
+		}
+	}
+
+	p {
+		font-family: 'Montserrat';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 25px;
+		line-height: 30px;
+		color: #939CB0;
+
+		&:not(:last-child) {
+			margin-bottom: 14px;
+		}
+	}
+}

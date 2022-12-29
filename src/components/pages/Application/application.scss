@@ -1,0 +1,7 @@
+.application {
+	&__wraper {
+		&:not(:last-child) {
+			margin-right: 50px;
+		}
+	}
+}
