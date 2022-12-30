@@ -1,5 +1,4 @@
 import './someDaysWeather.scss';
-import sun from '../../resources/icons/sun.svg';
 
 const SomeDaysWeather = () => {
 
@@ -15,7 +14,7 @@ const SomeDaysWeather = () => {
 				<div className="someDaysWeather__item">
 					<h3>Сегодня</h3>
 					<span>28 авг</span>
-					<img src={sun} alt="sun" />
+					{/* <img src={sun} alt="sun" /> */}
 					<p>
 						+18
 						<sup>o</sup>

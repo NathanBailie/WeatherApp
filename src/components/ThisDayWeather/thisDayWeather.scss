@@ -28,7 +28,6 @@
 	img {
 		width: 140px;
 		height: 140px;
-		// margin: 0 auto;
 		z-index: -1;
 		margin-bottom: -14px;
 	}
@@ -40,12 +39,12 @@
 	}
 
 	&__time {
+		position: absolute;
 		font-family: 'Montserrat';
 		font-size: 22px;
-		position: absolute;
 		bottom: 15px;
 		left: 50%;
-		transform: translate(-50%);
 		width: 100%;
+		transform: translate(-50%);
 	}
 }

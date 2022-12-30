@@ -9,12 +9,14 @@ import { useState } from 'react';
 
 const Application = () => {
 	const [weatherMain, setWeatherMain] = useState({});
+	const [weatherConditions, setWeatherConditions] = useState({});
 	const weatherService = new WeatherService({});
 	useEffect(() => {
 		weatherService
 			.getCurrentWeather('Erdemli')
 			.then(response => {
-				setWeatherMain(response.main)
+				setWeatherMain(response.main);
+				setWeatherConditions(response.conditions)
 			})
 	}, []);
 
@@ -22,7 +24,7 @@ const Application = () => {
 		<div className="application">
 			<div className="application__wraper">
 				<ThisDayWeather weatherMain={weatherMain} />
-				<ThisDayWeatherInfo />
+				<ThisDayWeatherInfo weatherConditions={weatherConditions} />
 			</div>
 			<SomeDaysWeather />
 		</div>

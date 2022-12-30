@@ -1,5 +1,6 @@
 import './thisDayWeather.scss';
 
+
 const ThisDayWeather = ({ weatherMain }) => {
 	if (Object.keys(weatherMain).length === 0) {
 		return;
