@@ -2,58 +2,50 @@
 	width: 400px;
 	height: 300px;
 	border: 1px solid blue;
-	padding: 20px;
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	position: relative;
 
-	&__weather {
-		display: flex;
-	}
-
-	&__temperature {
-		width: 50%;
-
-		span {
-			width: 160px;
-			height: 117px;
-			font-family: 'Montserrat';
-			font-style: normal;
-			font-weight: 500;
-			font-size: 96px;
-			line-height: 117px;
-			color: #4793FF;
-		}
-
-		h3 {
-			font-family: 'Montserrat';
-			font-style: normal;
-			font-weight: 400;
-			font-size: 40px;
-			line-height: 49px;
-			margin-bottom: 30px;
-		}
-	}
-
-	&__image {
-		width: 50%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-
-		img {
-			width: 120px;
-			height: 120px;
-		}
-	}
-
-	p {
+	&__location {
 		font-family: 'Montserrat';
 		font-style: normal;
 		font-weight: 400;
-		font-size: 25px;
-		line-height: 30px;
-		color: #939CB0;
+		font-size: 20px;
+		margin-bottom: 5px;
+		text-align: center;
+	}
 
-		&:not(:last-child) {
-			margin-bottom: 14px;
-		}
+	&__date {
+		font-family: 'Montserrat';
+		font-weight: bold;
+		font-size: 26px;
+		text-align: center;
+	}
+
+
+	img {
+		width: 140px;
+		height: 140px;
+		// margin: 0 auto;
+		z-index: -1;
+		margin-bottom: -14px;
+	}
+
+	p {
+		font-size: 18px;
+		color: #4793FF;
+		font-weight: bold;
+	}
+
+	&__time {
+		font-family: 'Montserrat';
+		font-size: 22px;
+		position: absolute;
+		bottom: 15px;
+		left: 50%;
+		transform: translate(-50%);
+		width: 100%;
 	}
 }
