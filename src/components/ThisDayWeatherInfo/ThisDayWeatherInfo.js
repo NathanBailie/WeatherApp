@@ -40,7 +40,7 @@ const ThisDayWeatherInfo = ({ weatherConditions }) => {
 				{/* <div className="thisDayWeatherInfo__image">
 				<img src={cloud} alt="cloud" />
 			</div> */}
-				<div className="thisDayWeatherInfo__item">
+				<div className="thisDayWeatherInfo__item" key={index}>
 					<div className="thisDayWeatherInfo__icon">
 						<img src={item[0]} alt="weatherIcon" />
 					</div>
@@ -56,7 +56,6 @@ const ThisDayWeatherInfo = ({ weatherConditions }) => {
 			</>
 		)
 	})
-	console.log(result)
 
 	return (
 		<div className="thisDayWeatherInfo">
