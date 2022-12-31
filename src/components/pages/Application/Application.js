@@ -3,16 +3,15 @@ import ThisDayWeather from '../../ThisDayWeather';
 import ThisDayWeatherInfo from '../../ThisDayWeatherInfo';
 import SomeDaysWeather from '../../SomeDaysWeather';
 import Filters from '../../Filters';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import WeatherService from '../../../services/WeatherService';
-import { useState } from 'react';
 
 
 const Application = () => {
 	const [weatherMain, setWeatherMain] = useState({});
 	const [weatherConditions, setWeatherConditions] = useState({});
 	const [daysFilter, setDaysFilter] = useState(3);
-
+	const [someDaysWeather, setSomeDaysWeather] = useState([]);
 	const weatherService = new WeatherService({});
 
 	useEffect(() => {
@@ -20,9 +19,17 @@ const Application = () => {
 			.getCurrentWeather('Erdemli')
 			.then(response => {
 				setWeatherMain(response.main);
-				setWeatherConditions(response.conditions)
-			})
+				setWeatherConditions(response.conditions);
+			});
 	}, []);
+
+	useEffect(() => {
+		weatherService
+			.getSeveralDaysWeather('Erdemli', 7)
+			.then((response) => {
+				setSomeDaysWeather(response);
+			});
+	}, [daysFilter]);
 
 	return (
 		<div className="application">
@@ -32,7 +39,8 @@ const Application = () => {
 			</div>
 			<Filters
 				setDaysFilter={setDaysFilter} />
-			<SomeDaysWeather />
+			<SomeDaysWeather
+				someDaysWeather={someDaysWeather} />
 		</div>
 	);
 };

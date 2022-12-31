@@ -1,23 +1,13 @@
 .thisDayWeatherInfo {
 	width: 750px;
-	height: 300px;
-	border: 1px solid blue;
+	min-height: 300px;
 	position: relative;
 	padding: 15px;
 	display: grid;
-	grid-template: auto / repeat(2, 50%);
+	grid-template: auto / repeat(auto-fit, minmax(290px, 345px));
 	justify-content: center;
 	align-items: center;
 	gap: 10px;
-
-	&__image {
-		max-width: 460px;
-		max-height: 200px;
-		position: absolute;
-		top: 0;
-		right: 0;
-		z-index: -1;
-	}
 
 	&__item {
 		display: grid;

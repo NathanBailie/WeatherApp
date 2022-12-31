@@ -4,9 +4,7 @@ import Spinner from '../Spinner';
 import ErrorBoundary from '../ErrorBoundary';
 import Application from '../pages/Application';
 
-const App = (props) => {
-
-
+const App = () => {
 	return (
 		<div className="app">
 			<div className="container">

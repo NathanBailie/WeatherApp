@@ -1,12 +1,14 @@
 .application {
 	max-width: 1200px;
 	margin: 0 auto;
-	border: 1px solid blue;
 
 	&__wraper {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		flex-wrap: wrap;
+		justify-content: center;
 		margin-bottom: 50px;
+		gap: 10px 50px;
 	}
 }

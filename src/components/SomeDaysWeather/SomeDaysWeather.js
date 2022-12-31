@@ -1,26 +1,32 @@
 import './someDaysWeather.scss';
 
-const SomeDaysWeather = () => {
+const SomeDaysWeather = ({ someDaysWeather }) => {
+	if (someDaysWeather.length === 0) {
+		return;
+	};
 
+	const monthsEn = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+	const result = someDaysWeather.map((day, index) => {
+		const { date, maxTemp, minTemp, weatherText, icon } = day;
+		const dateArray = date.split('-');
+		const monthNum = Number(dateArray[1]) - 1;
+		const dayNum = Number(dateArray[2]);
+
+		return (
+			<div className="someDaysWeather__item" key={index}>
+				<h3>{`${monthsEn[monthNum]}, ${dayNum}`}</h3>
+				<p>{maxTemp}<sup>o</sup></p>
+				<span>{minTemp}<sup>o</sup></span>
+				<img src={icon} alt="weatherIcon" />
+				<span className='someDaysWeather__descr'>{weatherText}</span>
+			</div>
+		);
+	});
 
 	return (
 		<div className="someDaysWeather">
-			<div className="someDaysWeather__items">
-				<div className="someDaysWeather__item">
-					<h3>Сегодня</h3>
-					<span>28 авг</span>
-					{/* <img src={sun} alt="sun" /> */}
-					<p>
-						+18
-						<sup>o</sup>
-					</p>
-					<span>
-						+15
-						<sup>o</sup>
-					</span>
-					<span className='someDaysWeather__descr'>Облачно</span>
-				</div>
-			</div>
+			{result}
 		</div>
 	);
 };

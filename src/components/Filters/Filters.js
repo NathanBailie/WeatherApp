@@ -1,6 +1,6 @@
 import './filters.scss';
 import uuid from 'react-uuid';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const Filters = ({ setDaysFilter }) => {
 	const allFilters = [

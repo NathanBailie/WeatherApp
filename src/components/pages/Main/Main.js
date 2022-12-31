@@ -2,8 +2,6 @@ import './main.scss';
 import main from '../../../resources/img'
 
 const Main = () => {
-
-
 	return (
 		<div className="main">
 			<img src={main} alt="main" />
