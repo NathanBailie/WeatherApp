@@ -1,15 +1,35 @@
 .spinner {
-	width: 100px;
-	margin: 0 auto 15px;
+	margin: auto 0;
+	width: 100%;
+	text-align: center;
+}
 
-	img {
-		width: 100%;
-		margin-bottom: 10px;
+.spinner>div {
+	width: 15px;
+	height: 15px;
+	background-color: rgb(61, 194, 34);
+	border-radius: 100%;
+	display: inline-block;
+	animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+	animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+	animation-delay: -0.16s;
+}
+
+@keyframes sk-bouncedelay {
+
+	0%,
+	80%,
+	100% {
+		transform: scale(0);
 	}
 
-	p {
-		margin: 0;
-		text-align: center;
-		font-style: italic;
+	40% {
+		transform: scale(1.0);
 	}
 }

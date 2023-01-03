@@ -5,6 +5,8 @@
 	margin: 0 auto;
 	border-radius: 15px;
 	position: relative;
+	margin-top: 15px;
+	animation: come 1.5s ease 1 forwards;
 
 	img {
 		border-radius: 15px;
@@ -40,7 +42,6 @@
 		}
 
 		button {
-			max-width: 120px;
 			padding: 5px 10px;
 			display: flex;
 			justify-content: center;
@@ -60,5 +61,15 @@
 				transform: scale(0.97);
 			}
 		}
+	}
+}
+
+@keyframes come {
+	from {
+		transform: translateY(-300px)
+	}
+
+	to {
+		transform: translateY(0)
 	}
 }

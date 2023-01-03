@@ -9,6 +9,17 @@
 		flex-wrap: wrap;
 		justify-content: center;
 		margin-bottom: 50px;
-		gap: 10px 50px;
+		gap: 20px;
+		animation: visibility 1s ease 1 forwards;
+	}
+}
+
+@keyframes visibility {
+	from {
+		opacity: 0
+	}
+
+	to {
+		opacity: 1
 	}
 }

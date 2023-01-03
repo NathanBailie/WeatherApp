@@ -1,17 +1,18 @@
 .thisDayWeatherInfo {
-	width: 750px;
+	width: 560px;
 	min-height: 300px;
 	position: relative;
 	padding: 15px;
 	display: grid;
-	grid-template: auto / repeat(auto-fit, minmax(290px, 345px));
+	grid-template: auto / repeat(auto-fit, 250px);
 	justify-content: center;
 	align-items: center;
-	gap: 10px;
+	gap: 10px 25px;
+	// border: 1px solid blue;
 
 	&__item {
 		display: grid;
-		grid-template: minmax(10px, auto) / repeat(10, 1fr);
+		grid-template: minmax(10px, auto) / repeat(8, 1fr);
 		align-items: center;
 		text-align: center;
 
@@ -38,7 +39,7 @@
 			font-size: 14px;
 			color: #939CB0;
 			text-align: center;
-			grid-column: 2 / 6;
+			grid-column: 2 / 7;
 		}
 
 		p {
@@ -46,7 +47,7 @@
 			font-style: normal;
 			font-weight: 400;
 			font-size: 14px;
-			grid-column: 6 / 11;
+			grid-column: 7 / 9;
 			align-items: center;
 		}
 	}

@@ -6,7 +6,7 @@ const ErrorIndicator = () => {
 		<div className="errorIndicator">
 			<img src={error} alt="error" />
 			<h4>Ups.. Something has gone wrong!</h4>
-			<p>Reload your page please!</p>
+			<p>Reload your page please and try again!</p>
 		</div>
 	);
 };
