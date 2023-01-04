@@ -8,9 +8,8 @@
 	justify-content: center;
 	align-items: center;
 	gap: 10px 25px;
-	// border: 1px solid blue;
 	border-radius: 15px;
-	box-shadow: 0px 0px 3px 1px MediumSlateBlue, 0px 0px 3px 1px CornflowerBlue;
+	box-shadow: 0px 0px 3px 1px #7b6cdb, 0px 0px 3px 1px #9db7e5;
 	background: linear-gradient(to bottom left, rgb(236, 240, 247), rgb(94, 174, 206));
 
 	&__item {
@@ -41,6 +40,7 @@
 			img {
 				width: 30px;
 				height: 30px;
+				user-select: none;
 			}
 		}
 
@@ -49,7 +49,6 @@
 			font-style: normal;
 			font-weight: bold;
 			font-size: 14px;
-			// color: #162ca7;
 			color: #4e459b;
 			text-align: center;
 			grid-column: 2 / 8;
@@ -62,7 +61,6 @@
 			font-size: 16px;
 			grid-column: 8 / 11;
 			align-items: center;
-			// color: #435272;
 			color: #cd2947;
 		}
 	}

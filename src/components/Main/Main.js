@@ -9,9 +9,9 @@ import main7 from '../../resources/img/main/main7.jpg';
 import main8 from '../../resources/img/main/main8.jpg';
 import main9 from '../../resources/img/main/main9.webp';
 import main10 from '../../resources/img/main/main10.webp';
-
-import { useState, useEffect } from 'react';
 import Spinner from '../Spinner';
+import { useState, useEffect } from 'react';
+
 
 const Main = ({ onGetWeather, mainLoading, forecastLoading }) => {
 	const images = [main1, main2, main3, main4, main5, main6, main7, main8, main9, main10];
@@ -24,14 +24,14 @@ const Main = ({ onGetWeather, mainLoading, forecastLoading }) => {
 
 	function getRandom(min, max) {
 		return Math.floor(Math.random() * (max - min + 1)) + min;
-	}
+	};
 
 	let buttonClasses;
 	if (!mainLoading || !forecastLoading) {
 		buttonClasses = "main__button main__button_active";
 	} else {
 		buttonClasses = "main__button";
-	}
+	};
 
 	return (
 		<div className="main">

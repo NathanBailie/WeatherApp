@@ -3,7 +3,6 @@ export default class OpenWeatherMapService {
 	_apiBase = 'http://api.openweathermap.org/data/2.5';
 	_apiKey = 'b218321600f23970f780231bf8e68548';
 
-
 	getResource = async (cityName) => {
 		const res = await fetch(`${this._apiBase}/forecast?q=${cityName}&appid=${this._apiKey}`);
 
@@ -72,16 +71,14 @@ export default class OpenWeatherMapService {
 					return sum + num;
 				}, 0) / pressure.length),
 				['weatherText']: newWeatherText,
-			}
-		})
+			};
+		});
 
 		return data;
-	}
+	};
 
 	getWeatherForecast = async (cityName) => {
 		const res = await this.getResource(cityName);
 		return this._transformData(res);
 	};
-}
-
-
+};

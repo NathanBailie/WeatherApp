@@ -56,11 +56,11 @@
 		border: none;
 		border-radius: 14px;
 		margin: 0 auto;
-		cursor: pointer;
 		transition: all 0.1s linear;
 		border: 1px solid BlanchedAlmond;
 		position: relative;
 		opacity: 0.9;
+		cursor: pointer;
 
 		&_active {
 			&:before {

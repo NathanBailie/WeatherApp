@@ -1,4 +1,4 @@
-import './spinner.scss'
+import './spinner.scss';
 
 
 const Spinner = () => {
@@ -8,7 +8,7 @@ const Spinner = () => {
 			<div className="bounce2"></div>
 			<div className="bounce3"></div>
 		</div>
-	)
+	);
 };
 
 export default Spinner;

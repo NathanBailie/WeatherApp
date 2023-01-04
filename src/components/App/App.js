@@ -1,9 +1,8 @@
 import 'normalize.css';
 import './app.scss';
-import Spinner from '../Spinner';
-import ErrorIndicator from '../ErrorIndicator';
 import Main from '../Main';
 import Application from '../Application';
+import ErrorIndicator from '../ErrorIndicator';
 import { useState, useEffect } from 'react';
 import FreeWeatherApiSerice from '../../services/FreeWeatherApiSerice';
 import OpenWeatherMapService from '../../services/OpenWeatherMapService';
@@ -13,12 +12,10 @@ const App = () => {
 	const [view, setView] = useState(false);
 	const freeWeatherApiSerice = new FreeWeatherApiSerice();
 	const openWeatherMapService = new OpenWeatherMapService();
-
 	const [weatherMain, setWeatherMain] = useState({});
 	const [weatherConditions, setWeatherConditions] = useState({});
 	const [mainLoading, setMainLoading] = useState(null);
 	const [error, setError] = useState(false);
-
 	const [weatherForecast, setweatherForecast] = useState({});
 	const [forecastLoading, setForecastLoading] = useState(null);
 	const [forecastError, setForecastError] = useState(false);
@@ -32,7 +29,6 @@ const App = () => {
 	function onGetWeather(cityName) {
 		setMainLoading(true);
 		setForecastLoading(true);
-		console.log(123)
 
 		setTimeout(() => {
 			freeWeatherApiSerice
@@ -42,7 +38,7 @@ const App = () => {
 					setWeatherConditions(response.conditions);
 					setMainLoading(false);
 				})
-				.catch(() => { setError(true); setMainLoading(false) })
+				.catch(() => { setError(true); setMainLoading(false) });
 
 			openWeatherMapService
 				.getWeatherForecast(cityName)
@@ -52,9 +48,10 @@ const App = () => {
 				})
 				.catch(() => { setForecastError(true); setForecastLoading(false) })
 		}, 1000);
-	}
+	};
 
-	if (error) {
+
+	if (error || forecastError) {
 		return <ErrorIndicator />
 	};
 

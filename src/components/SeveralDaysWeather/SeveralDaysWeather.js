@@ -1,5 +1,4 @@
 import './severalDaysWeather.scss';
-import { useState, useEffect } from 'react';
 import clear from '../../resources/icons/weather/clear.png';
 import clouds from '../../resources/icons/weather/clouds.png';
 import thunderstorm from '../../resources/icons/weather/thunderstorm.png';
@@ -38,7 +37,7 @@ const SeveralDaysWeather = ({ weatherForecast }) => {
 					{temp_min}<sup>o</sup> - {temp_max}<sup>o</sup>
 
 				</span>
-				<img src={icons[weatherText]} alt="weatherIcon" />
+				<img src={icons[weatherText] ? icons[weatherText] : icons[mist]} alt="weatherIcon" />
 				<p className="severalDaysWeather__text">{weatherText}</p>
 				<p className="severalDaysWeather__pressure">{pressure} mm</p>
 			</div>

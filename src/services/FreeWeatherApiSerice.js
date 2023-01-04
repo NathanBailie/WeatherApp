@@ -35,7 +35,6 @@ export default class FreeWeatherApiSerice {
 		};
 	};
 
-
 	getCurrentWeather = async (cityName) => {
 		const res = await this.getResource(cityName);
 		return this._transformData(res);

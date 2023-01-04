@@ -1,6 +1,7 @@
 import './errorIndicator.scss';
 import error from './error.png';
 
+
 const ErrorIndicator = () => {
 	return (
 		<div className="errorIndicator">

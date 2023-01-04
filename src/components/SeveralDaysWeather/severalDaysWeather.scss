@@ -1,18 +1,14 @@
 .severalDaysWeather {
-	// min-height: 280px;
-	// width: 910px;
 	padding: 15px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	// grid-template: auto / repeat(auto-fit, 150px);
 	gap: 15px;
 	margin: 15px auto 0;
 
 	&__item {
 		width: 140px;
 		height: 200px;
-		// background: #DAE9FF;
 		background: #003685;
 		border-radius: 15px;
 		padding: 10px;
@@ -27,7 +23,6 @@
 			font-weight: bold;
 			font-size: 16px;
 			margin-bottom: 7px;
-			// color: #8b8e94;
 			color: #bec4d1;
 		}
 
@@ -42,6 +37,7 @@
 			width: 50px;
 			height: 50px;
 			margin-bottom: 3px;
+			user-select: none;
 		}
 
 		span {
@@ -50,7 +46,6 @@
 			font-weight: 500;
 			font-size: 18px;
 			line-height: 22px;
-			// color: #4793FF;
 			color: #65a3fb;
 		}
 	}
@@ -60,7 +55,6 @@
 		font-style: normal;
 		font-weight: 400;
 		font-size: 16px;
-		// color: SteelBlue;
 		color: #8cb9df;
 	}
 
@@ -70,7 +64,6 @@
 		font-weight: 400;
 		font-size: 14px;
 		line-height: 17px;
-		// color: #808899;
 		color: #bec3cd;
 		position: absolute;
 		bottom: 10px;

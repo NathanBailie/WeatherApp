@@ -6,7 +6,6 @@ import precipitation1 from '../../resources/icons/conditions/precipitation.png';
 import windDir1 from '../../resources/icons/conditions/windDir.png';
 import windSpeed1 from '../../resources/icons/conditions/windSpeed.png';
 import cloudCover1 from '../../resources/icons/conditions/cloudCover.png';
-// import '../../resources/img/bg/clouds.jpg';
 
 
 const ThisDayWeatherInfo = ({ weatherConditions }) => {

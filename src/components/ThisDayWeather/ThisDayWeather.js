@@ -11,8 +11,8 @@ const ThisDayWeather = ({ weatherMain }) => {
 	const onlyDate = time.match(/\d+-\d+-\d+/)[0].split('-').join(', ');
 	const date = new Date(onlyDate);
 	const day = date.getDay();
-
 	const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
 
 	return (
 		<div className="thisDay">
@@ -24,7 +24,7 @@ const ThisDayWeather = ({ weatherMain }) => {
 					{`${days[day]}, ${date.getDate()}`}
 				</h4>
 				<img src={icon} alt="icon" />
-				<p>{temperature}&deg;C,  {weatherText}</p>
+				<p>{temperature}&deg;C, {weatherText}</p>
 				<span className="thisDay__time">Local time is {onlyTime}</span>
 			</div>
 		</div>
