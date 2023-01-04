@@ -6,6 +6,7 @@ import precipitation1 from '../../resources/icons/conditions/precipitation.png';
 import windDir1 from '../../resources/icons/conditions/windDir.png';
 import windSpeed1 from '../../resources/icons/conditions/windSpeed.png';
 import cloudCover1 from '../../resources/icons/conditions/cloudCover.png';
+// import '../../resources/img/bg/clouds.jpg';
 
 
 const ThisDayWeatherInfo = ({ weatherConditions }) => {
@@ -37,15 +38,16 @@ const ThisDayWeatherInfo = ({ weatherConditions }) => {
 		const [icon, description, value, magnitude] = item;
 
 		return (
-			<>
-				<div className="thisDayWeatherInfo__item" key={index}>
-					<div className="thisDayWeatherInfo__icon">
-						<img src={icon} alt="weatherIcon" />
-					</div>
-					<span>{description}</span>
-					<p>{value} {magnitude && magnitude}</p>
+			<div
+				className="thisDayWeatherInfo__item"
+				key={index}
+				title={description}>
+				<div className="thisDayWeatherInfo__icon">
+					<img src={icon} alt="weatherIcon" />
 				</div>
-			</>
+				<span>{description}</span>
+				<p>{value} {magnitude && magnitude}</p>
+			</div>
 		);
 	});
 

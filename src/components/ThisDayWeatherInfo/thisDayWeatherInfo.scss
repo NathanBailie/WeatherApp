@@ -9,22 +9,34 @@
 	align-items: center;
 	gap: 10px 25px;
 	// border: 1px solid blue;
+	border-radius: 15px;
+	box-shadow: 0px 0px 3px 1px MediumSlateBlue, 0px 0px 3px 1px CornflowerBlue;
+	background: linear-gradient(to bottom left, rgb(236, 240, 247), rgb(94, 174, 206));
 
 	&__item {
 		display: grid;
-		grid-template: minmax(10px, auto) / repeat(8, 1fr);
+		grid-template: minmax(10px, auto) / repeat(10, 1fr);
 		align-items: center;
 		text-align: center;
+		border-radius: 15px;
+		padding: 5px;
+		cursor: pointer;
+
+		&:hover {
+			box-shadow: 0px 0px 3px 1px rgb(222, 235, 243);
+			transform: scale(1.03);
+		}
 
 		.thisDayWeatherInfo__icon {
 			width: 40px;
 			height: 40px;
 			border-radius: 50%;
-			box-shadow: 1px 4px 10px -1px rgba(71, 147, 255, 0.2);
+			box-shadow: 1px 4px 10px -1px rgba(71, 147, 255, 0.5);
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			grid-column: 1 / 2;
+			background: rgba(255, 255, 255, 0.466);
 
 			img {
 				width: 30px;
@@ -35,20 +47,23 @@
 		span {
 			font-family: 'Montserrat';
 			font-style: normal;
-			font-weight: 400;
+			font-weight: bold;
 			font-size: 14px;
-			color: #939CB0;
+			// color: #162ca7;
+			color: #4e459b;
 			text-align: center;
-			grid-column: 2 / 7;
+			grid-column: 2 / 8;
 		}
 
 		p {
 			font-family: 'Montserrat';
 			font-style: normal;
-			font-weight: 400;
-			font-size: 14px;
-			grid-column: 7 / 9;
+			font-weight: bold;
+			font-size: 16px;
+			grid-column: 8 / 11;
 			align-items: center;
+			// color: #435272;
+			color: #cd2947;
 		}
 	}
 }
