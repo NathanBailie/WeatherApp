@@ -32,25 +32,26 @@ const App = () => {
 	function onGetWeather(cityName) {
 		setMainLoading(true);
 		setForecastLoading(true);
+		console.log(123)
 
-		setTimeout(() => {
-			freeWeatherApiSerice
-				.getCurrentWeather(cityName)
-				.then(response => {
-					setWeatherMain(response.main);
-					setWeatherConditions(response.conditions);
-					setMainLoading(false);
-				})
-				.catch(() => { setError(true); setMainLoading(false) })
+		// setTimeout(() => {
+		// 	freeWeatherApiSerice
+		// 		.getCurrentWeather(cityName)
+		// 		.then(response => {
+		// 			setWeatherMain(response.main);
+		// 			setWeatherConditions(response.conditions);
+		// 			setMainLoading(false);
+		// 		})
+		// 		.catch(() => { setError(true); setMainLoading(false) })
 
-			openWeatherMapService
-				.getWeatherForecast(cityName)
-				.then(response => {
-					setweatherForecast(response);
-					setForecastLoading(false);
-				})
-				.catch(() => { setForecastError(true); setForecastLoading(false) })
-		}, 1000);
+		// 	openWeatherMapService
+		// 		.getWeatherForecast(cityName)
+		// 		.then(response => {
+		// 			setweatherForecast(response);
+		// 			setForecastLoading(false);
+		// 		})
+		// 		.catch(() => { setForecastError(true); setForecastLoading(false) })
+		// }, 1000);
 	}
 
 	if (error) {

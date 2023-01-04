@@ -1,7 +1,6 @@
 .main {
-	width: 350px;
+	max-width: 350px;
 	height: 350px;
-	border: 1px solid darkgoldenrod;
 	margin: 0 auto;
 	border-radius: 15px;
 	position: relative;
@@ -10,6 +9,8 @@
 
 	img {
 		border-radius: 15px;
+		height: 100%;
+		width: 100%;
 	}
 
 	&__finder {
@@ -21,44 +22,80 @@
 		transform: translate(-50%, -50%);
 
 		input {
-			max-width: 300px;
+			width: 210px;
 			padding: 7px 10px;
 			border: 1px solid lightblue;
-			background: snow;
+			background: white;
 			border-radius: 14px;
 			margin: 0 auto;
 			margin-bottom: 10px;
 			text-align: center;
+			opacity: 0.9;
 
 			&:focus {
 				outline: none;
 				border: 1px solid rgb(149, 149, 221);
-				box-shadow: 0px 0px 3px 1px rgb(131, 131, 212);
+				box-shadow: 0px 0px 4px 1px rgb(131, 131, 212);
+				background: rgb(228, 246, 250);
 			}
 
 			&::placeholder {
 				font-style: italic;
 			}
 		}
+	}
 
-		button {
-			padding: 5px 10px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			border-radius: 14px;
-			margin: 0 auto;
-			border: none;
-			background: rgb(235, 244, 247);
-			cursor: pointer;
-			font-size: 14px;
+	&__button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: BlanchedAlmond;
+		padding: 5px 10px;
+		min-width: 130px;
+		font-size: 14px;
+		border: none;
+		border-radius: 14px;
+		margin: 0 auto;
+		cursor: pointer;
+		transition: all 0.1s linear;
+		border: 1px solid BlanchedAlmond;
+		position: relative;
+		opacity: 0.9;
+
+		&_active {
+			&:before {
+				content: "\27A0";
+				font-family: FontAwesome;
+				font-size: 20px;
+				font-weight: bold;
+				position: absolute;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				right: 0;
+				top: 0;
+				opacity: 0;
+				height: 100%;
+				width: 35px;
+				transition: all 0.2s linear;
+				color: MediumAquamarine;
+			}
 
 			&:hover {
+				text-indent: -15px;
 				transform: scale(1.03);
+				border: 1px solid darkorange;
+
+				&:before {
+					opacity: 1;
+					text-indent: 0px;
+				}
 			}
 
 			&:active {
 				transform: scale(0.97);
+				box-shadow: 0px 0px 3px 1px darkorange;
+				background: Bisque;
 			}
 		}
 	}
@@ -66,7 +103,7 @@
 
 @keyframes come {
 	from {
-		transform: translateY(-300px)
+		transform: translateY(-700px)
 	}
 
 	to {
