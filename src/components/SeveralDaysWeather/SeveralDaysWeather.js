@@ -3,6 +3,7 @@ import clear from '../../resources/icons/weather/clear.png';
 import clouds from '../../resources/icons/weather/clouds.png';
 import thunderstorm from '../../resources/icons/weather/thunderstorm.png';
 import rain from '../../resources/icons/weather/rain.png';
+import snow from '../../resources/icons/weather/snow.png';
 import mist from '../../resources/icons/weather/mist.png';
 
 const SeveralDaysWeather = ({ weatherForecast }) => {
@@ -25,6 +26,7 @@ const SeveralDaysWeather = ({ weatherForecast }) => {
 			Clouds: clouds,
 			Rain: rain,
 			Thunderstorm: thunderstorm,
+			Snow: snow,
 			Mist: mist,
 		};
 
@@ -34,7 +36,7 @@ const SeveralDaysWeather = ({ weatherForecast }) => {
 				<h2>{`${monthsEn[monthNum]}, ${dayNum}`}</h2>
 				<h3>{daysEn[dayOfWeek]}</h3>
 				<span>
-					{temp_min}<sup>o</sup> - {temp_max}<sup>o</sup>
+					{temp_min}<sup>o</sup> /y {temp_max}<sup>o</sup>
 
 				</span>
 				<img src={icons[weatherText] ? icons[weatherText] : icons[mist]} alt="weatherIcon" />
