@@ -30,7 +30,6 @@ const SeveralDaysWeather = ({ weatherForecast }) => {
 			Mist: mist,
 		};
 
-
 		return (
 			<div className="severalDaysWeather__item" key={index}>
 				<h2>{`${monthsEn[monthNum]}, ${dayNum}`}</h2>
@@ -39,7 +38,7 @@ const SeveralDaysWeather = ({ weatherForecast }) => {
 					{temp_min}<sup>o</sup> /y {temp_max}<sup>o</sup>
 
 				</span>
-				<img src={icons[weatherText] ? icons[weatherText] : icons[mist]} alt="weatherIcon" />
+				<img src={icons[weatherText] !== undefined ? icons[weatherText] : icons[mist]} alt="weatherIcon" />
 				<p className="severalDaysWeather__text">{weatherText}</p>
 				<p className="severalDaysWeather__pressure">{pressure} mm</p>
 			</div>
