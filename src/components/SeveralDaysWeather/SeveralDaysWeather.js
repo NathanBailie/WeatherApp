@@ -35,7 +35,7 @@ const SeveralDaysWeather = ({ weatherForecast }) => {
 				<h2>{`${monthsEn[monthNum]}, ${dayNum}`}</h2>
 				<h3>{daysEn[dayOfWeek]}</h3>
 				<span>
-					{temp_min}<sup>o</sup> /y {temp_max}<sup>o</sup>
+					{temp_min}<sup>o</sup> / {temp_max}<sup>o</sup>
 
 				</span>
 				<img src={icons[weatherText] !== undefined ? icons[weatherText] : icons[mist]} alt="weatherIcon" />
