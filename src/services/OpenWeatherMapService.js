@@ -1,6 +1,6 @@
 export default class OpenWeatherMapService {
 	// ! OpenWeatherMap - https://openweathermap.org/
-	_apiBase = 'http://api.openweathermap.org/data/2.5';
+	_apiBase = 'https://api.openweathermap.org/data/2.5';
 	_apiKey = 'b218321600f23970f780231bf8e68548';
 
 	getResource = async (cityName) => {

@@ -1,6 +1,6 @@
 export default class FreeWeatherApiSerice {
 	// ! FreeWeatherApi -  https://www.weatherapi.com/
-	_apiBase = 'http://api.weatherapi.com/v1';
+	_apiBase = 'https://api.weatherapi.com/v1';
 	_apiKey = '392a38bc90774449b9294621223012';
 
 	getResource = async (cityName) => {
