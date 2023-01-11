@@ -1,14 +1,14 @@
 import './thisDayWeatherInfo.scss';
-import temperature1 from '../../resources/icons/conditions/temperature.png';
-import pressure1 from '../../resources/icons/conditions/pressure.png';
-import humidity1 from '../../resources/icons/conditions/humidity.png';
-import precipitation1 from '../../resources/icons/conditions/precipitation.png';
-import windDir1 from '../../resources/icons/conditions/windDir.png';
-import windSpeed1 from '../../resources/icons/conditions/windSpeed.png';
-import cloudCover1 from '../../resources/icons/conditions/cloudCover.png';
+import temperatureIcon from '../../resources/icons/conditions/temperature.png';
+import pressureIcon from '../../resources/icons/conditions/pressure.png';
+import humidityIcon from '../../resources/icons/conditions/humidity.png';
+import precipitationIcon from '../../resources/icons/conditions/precipitation.png';
+import windDirIcon from '../../resources/icons/conditions/windDir.png';
+import windSpeedIcon from '../../resources/icons/conditions/windSpeed.png';
+import cloudCoverIcon from '../../resources/icons/conditions/cloudCover.png';
 
 
-const ThisDayWeatherInfo = ({ weatherConditions }) => {
+const ThisDayWeatherInfo = ({ weatherConditions, lang }) => {
 	if (Object.keys(weatherConditions).length === 0) {
 		return;
 	};
@@ -23,19 +23,27 @@ const ThisDayWeatherInfo = ({ weatherConditions }) => {
 		cloudCover,
 	} = weatherConditions;
 
+	let condList;
+	let measures;
+	if (lang === 'ru') {
+		condList = ['Температура', 'Давление', 'Влажность', 'Осадки', 'Направл. ветра', 'Скорость ветра', 'Облачность'];
+		measures = ['мм', 'км/ч'];
+	} else {
+		condList = ['Temperature', 'Pressure', 'Humidity', 'Precipitation', 'Wind direction', 'Wind speed', 'Cloud cover'];
+		measures = ['mm', 'k/ph'];
+	};
 	const conditions = [
-		[temperature1, 'Temperature', temperature, '°C'],
-		[pressure1, 'Pressure', pressure, 'mm'],
-		[humidity1, 'Humidity', humidity, '%'],
-		[precipitation1, 'Precipitation', precipitation, '%'],
-		[windDir1, 'Wind direction', windDir],
-		[windSpeed1, 'Wind speed', windSpeed, 'k/ph'],
-		[cloudCover1, 'Cloud cover', cloudCover, '%'],
+		[temperatureIcon, condList[0], temperature, '°C'],
+		[pressureIcon, condList[1], pressure, measures[0]],
+		[humidityIcon, condList[2], humidity, '%'],
+		[precipitationIcon, condList[3], precipitation, '%'],
+		[windDirIcon, condList[4], windDir],
+		[windSpeedIcon, condList[5], windSpeed, measures[1]],
+		[cloudCoverIcon, condList[6], cloudCover, '%'],
 	];
 
 	const result = conditions.map((item, index) => {
 		const [icon, description, value, magnitude] = item;
-
 		return (
 			<div
 				className="thisDayWeatherInfo__item"

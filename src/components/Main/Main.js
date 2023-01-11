@@ -13,14 +13,14 @@ import Spinner from '../Spinner';
 import { useState, useEffect } from 'react';
 
 
-const Main = ({ onGetWeather, mainLoading, forecastLoading }) => {
+const Main = ({ onGetWeather, mainLoading, forecastLoading, lang, setLang }) => {
 	const images = [main1, main2, main3, main4, main5, main6, main7, main8, main9, main10];
 	const [mainImage, setMainImage] = useState();
 	const [value, setValue] = useState('');
 	const [errMessage, setErrMessage] = useState(false);
 
 	useEffect(() => {
-		setMainImage(images[getRandom(0, images.length - 1)])
+		setMainImage(images[getRandom(0, images.length - 1)]);
 	}, []);
 
 	function getRandom(min, max) {
@@ -61,7 +61,7 @@ const Main = ({ onGetWeather, mainLoading, forecastLoading }) => {
 					placeholder='type your city'
 					value={value}
 					onChange={(e) => setValue(e.target.value)}
-					onKeyDown={(e) => { e.key === 'Enter' && onGetWeather(value) }} />
+					onKeyDown={(e) => { e.key === 'Enter' && onGetWeather(value, lang) }} />
 				<button
 					className={buttonClasses}
 					disabled={mainLoading || forecastLoading ? true : false}
@@ -74,6 +74,12 @@ const Main = ({ onGetWeather, mainLoading, forecastLoading }) => {
 				</button>
 			</div>
 			<p className={errorMessageClasses}>Please, type your city</p>
+			<select
+				className='main__select'
+				onChange={(e) => setLang(e.target.value)}>
+				<option>ru</option>
+				<option>en</option>
+			</select>
 		</div>
 	);
 };

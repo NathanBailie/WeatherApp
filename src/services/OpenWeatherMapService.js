@@ -3,8 +3,8 @@ export default class OpenWeatherMapService {
 	_apiBase = 'https://api.openweathermap.org/data/2.5';
 	_apiKey = 'b218321600f23970f780231bf8e68548';
 
-	getResource = async (cityName) => {
-		const res = await fetch(`${this._apiBase}/forecast?q=${cityName}&appid=${this._apiKey}`);
+	getResource = async (cityName, lang) => {
+		const res = await fetch(`${this._apiBase}/forecast?q=${cityName}&appid=${this._apiKey}&lang=${lang}`);
 
 		if (!res.ok) {
 			throw new Error(`Could not fetch this url, received ${res.status}`);
@@ -27,6 +27,7 @@ export default class OpenWeatherMapService {
 				temp_max: [],
 				pressure: [],
 				weatherText: [],
+				weatherDescr: [],
 			});
 		});
 
@@ -41,6 +42,7 @@ export default class OpenWeatherMapService {
 						['temp_max']: [...newItem['temp_max'], Math.round(Number(day.main.temp_max) - 273.15)],
 						['pressure']: [...newItem['pressure'], Math.round(Number(day.main.pressure) - 273.15)],
 						['weatherText']: [...newItem['weatherText'], day.weather[0].main],
+						['weatherDescr']: [...newItem['weatherDescr'], day.weather[0].description],
 					};
 				};
 			});
@@ -48,19 +50,25 @@ export default class OpenWeatherMapService {
 		});
 
 		data = data.map(item => {
-			const { temp_min, temp_max, pressure, weatherText } = item;
-			let newWeatherText;
-			if ([...new Set(weatherText)].length === 0) {
-				newWeatherText = [...new Set(weatherText)][0]
-			} else {
-				let object = {};
-				for (let text of [...new Set(weatherText)]) {
-					object[text] = 0;
+			const { temp_min, temp_max, pressure, weatherText, weatherDescr } = item;
+			let newWeatherText = toFilter(weatherText);
+			let newWeatherDescr = toFilter(weatherDescr);
+
+			function toFilter(value) {
+				let newValue;
+				if ([...new Set(value)].length === 0) {
+					newValue = [...new Set(value)][0]
+				} else {
+					let object = {};
+					for (let text of [...new Set(value)]) {
+						object[text] = 0;
+					};
+					value.forEach(text => {
+						object[text] += 1;
+					});
+					newValue = Object.entries(object).reduce((acc, curr) => acc[1] > curr[1] ? acc : curr)[0];
 				};
-				weatherText.forEach(text => {
-					object[text] += 1;
-				});
-				newWeatherText = Object.entries(object).reduce((acc, curr) => acc[1] > curr[1] ? acc : curr)[0];
+				return newValue;
 			};
 
 			return {
@@ -71,14 +79,15 @@ export default class OpenWeatherMapService {
 					return sum + num;
 				}, 0) / pressure.length),
 				['weatherText']: newWeatherText,
+				['weatherDescr']: newWeatherDescr,
 			};
 		});
 
 		return data;
 	};
 
-	getWeatherForecast = async (cityName) => {
-		const res = await this.getResource(cityName);
+	getWeatherForecast = async (cityName, lang) => {
+		const res = await this.getResource(cityName, lang);
 		return this._transformData(res);
 	};
 };

@@ -3,8 +3,8 @@ export default class FreeWeatherApiSerice {
 	_apiBase = 'https://api.weatherapi.com/v1';
 	_apiKey = '392a38bc90774449b9294621223012';
 
-	getResource = async (cityName) => {
-		const res = await fetch(`${this._apiBase}/current.json?key=${this._apiKey}&q=${cityName}`);
+	getResource = async (cityName, lang) => {
+		const res = await fetch(`${this._apiBase}/current.json?key=${this._apiKey}&q=${cityName}&lang=${lang}`);
 
 		if (!res.ok) {
 			throw new Error(`Could not fetch this url, received ${res.status}`);
@@ -35,8 +35,8 @@ export default class FreeWeatherApiSerice {
 		};
 	};
 
-	getCurrentWeather = async (cityName) => {
-		const res = await this.getResource(cityName);
+	getCurrentWeather = async (cityName, lang) => {
+		const res = await this.getResource(cityName, lang);
 		return this._transformData(res);
 	};
 };

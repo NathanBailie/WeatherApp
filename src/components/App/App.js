@@ -19,6 +19,7 @@ const App = () => {
 	const [weatherForecast, setweatherForecast] = useState({});
 	const [forecastLoading, setForecastLoading] = useState(null);
 	const [forecastError, setForecastError] = useState(false);
+	const [lang, setLang] = useState('ru');
 
 	useEffect(() => {
 		if (mainLoading === false && forecastLoading === false) {
@@ -26,22 +27,22 @@ const App = () => {
 		}
 	}, [mainLoading, forecastLoading]);
 
-	function onGetWeather(cityName) {
+	function onGetWeather(cityName, lang) {
 		setMainLoading(true);
 		setForecastLoading(true);
 
 		setTimeout(() => {
 			freeWeatherApiSerice
-				.getCurrentWeather(cityName)
+				.getCurrentWeather(cityName, lang)
 				.then(response => {
 					setWeatherMain(response.main);
 					setWeatherConditions(response.conditions);
 					setMainLoading(false);
 				})
 				.catch(() => { setError(true); setMainLoading(false) });
-
+			setForecastLoading(false);
 			openWeatherMapService
-				.getWeatherForecast(cityName)
+				.getWeatherForecast(cityName, lang)
 				.then(response => {
 					setweatherForecast(response);
 					setForecastLoading(false);
@@ -58,17 +59,27 @@ const App = () => {
 	return (
 		<div className="app">
 			<div className="container">
+				{/* <Main
+					onGetWeather={onGetWeather}
+					mainLoading={mainLoading}
+					forecastLoading={forecastLoading}
+					setLang={setLang}
+				/> */}
 				{!view ?
 					<Main
 						onGetWeather={onGetWeather}
 						mainLoading={mainLoading}
 						forecastLoading={forecastLoading}
+						lang={lang}
+						setLang={setLang}
 					/>
 					:
 					<Application
 						weatherMain={weatherMain}
 						weatherConditions={weatherConditions}
-						weatherForecast={weatherForecast} />
+						weatherForecast={weatherForecast}
+						lang={lang}
+					/>
 				}
 			</div>
 		</div>
