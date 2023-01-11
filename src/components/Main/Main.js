@@ -17,6 +17,7 @@ const Main = ({ onGetWeather, mainLoading, forecastLoading }) => {
 	const images = [main1, main2, main3, main4, main5, main6, main7, main8, main9, main10];
 	const [mainImage, setMainImage] = useState();
 	const [value, setValue] = useState('');
+	const [errMessage, setErrMessage] = useState(false);
 
 	useEffect(() => {
 		setMainImage(images[getRandom(0, images.length - 1)])
@@ -26,12 +27,29 @@ const Main = ({ onGetWeather, mainLoading, forecastLoading }) => {
 		return Math.floor(Math.random() * (max - min + 1)) + min;
 	};
 
+	function onValidate(value) {
+		if (value.length === 0) {
+			setErrMessage(true);
+		} else {
+			setErrMessage(false);
+			onGetWeather(value);
+		};
+	};
+
 	let buttonClasses;
 	if (!mainLoading || !forecastLoading) {
 		buttonClasses = "main__button main__button_active";
 	} else {
 		buttonClasses = "main__button";
 	};
+
+	let errorMessageClasses;
+	if (!errMessage) {
+		errorMessageClasses = 'main__errorMessage';
+	} else {
+		errorMessageClasses = 'main__errorMessage main__errorMessage_active';
+	};
+
 
 	return (
 		<div className="main">
@@ -47,7 +65,7 @@ const Main = ({ onGetWeather, mainLoading, forecastLoading }) => {
 				<button
 					className={buttonClasses}
 					disabled={mainLoading || forecastLoading ? true : false}
-					onClick={() => { onGetWeather(value) }}>
+					onClick={() => onValidate(value)}>
 					{mainLoading ?
 						<Spinner />
 						:
@@ -55,6 +73,7 @@ const Main = ({ onGetWeather, mainLoading, forecastLoading }) => {
 					}
 				</button>
 			</div>
+			<p className={errorMessageClasses}>Please, type your city</p>
 		</div>
 	);
 };

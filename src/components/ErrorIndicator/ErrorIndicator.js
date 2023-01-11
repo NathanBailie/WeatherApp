@@ -6,8 +6,8 @@ const ErrorIndicator = () => {
 	return (
 		<div className="errorIndicator">
 			<img src={error} alt="error" />
-			<h4>Ups.. Something has gone wrong!</h4>
-			<p>Reload your page please and try again!</p>
+			<h4>There is no weather forecast for your request!</h4>
+			<p>Probably, you made a typo, reload the page and try again!</p>
 		</div>
 	);
 };
