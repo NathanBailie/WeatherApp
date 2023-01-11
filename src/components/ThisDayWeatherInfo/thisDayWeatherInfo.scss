@@ -19,12 +19,7 @@
 		text-align: center;
 		border-radius: 15px;
 		padding: 5px;
-		cursor: pointer;
 
-		&:hover {
-			box-shadow: 0px 0px 3px 1px rgb(222, 235, 243);
-			transform: scale(1.03);
-		}
 
 		.thisDayWeatherInfo__icon {
 			width: 40px;
