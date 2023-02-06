@@ -59,12 +59,6 @@ const App = () => {
 	return (
 		<div className="app">
 			<div className="container">
-				{/* <Main
-					onGetWeather={onGetWeather}
-					mainLoading={mainLoading}
-					forecastLoading={forecastLoading}
-					setLang={setLang}
-				/> */}
 				{!view ?
 					<Main
 						onGetWeather={onGetWeather}
